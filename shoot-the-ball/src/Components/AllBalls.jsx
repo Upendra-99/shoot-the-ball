@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components'
-import { useDispatch, useSelector } from "react-redux"
-import { ballReducer } from '../Redux/reducer';
-import { ballState, divBallsState } from '../Redux/action';
+
+const ScreenCenter = styled.div`
+height: 80vh;
+width: 30%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+`;
 
 export let Ball = styled.div`
-margin: 10px;
-  border-radius: 50%;
+  margin: 2%;
+  border-radius: 50%;  
   height: 60px;
   width: 60px;
-  background-color: red;
-  color: white;
-  font-weight: 500;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -19,17 +24,18 @@ margin: 10px;
 
 const AllBalls = () => {
 
-    const ballData = useSelector(state => state.balls);
-
+    // fetched all data from source to show vertically;
+    const SourceBallData = useSelector(state => state.source);
 
     return (
-        <div>
+        <ScreenCenter>
             {
-                ballData.map((ball) => (
-                    <Ball key={ball.position} id={ball.position}>Ball {ball.position}</Ball>
+                SourceBallData.map((ball) => (
+                    <Ball key={ball.id} style={{ backgroundColor: ball.color, display: ball.display }}></Ball>
                 ))
             }
-        </div>
+
+        </ScreenCenter>
     )
 }
 

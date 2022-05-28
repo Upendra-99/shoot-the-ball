@@ -1,63 +1,92 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { ballState, divBallsState } from '../Redux/action'
+import { destinationBallsState, sourceBallAction } from '../Redux/action'
 
 const TextInput = () => {
+
+    const ScreenRight = styled.div`
+    height: 80vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ `
+
     let Input = styled.input`
-      padding: 10px;
-      width: 300px;
+      padding: 5%;
+      width: 80%;
+      border-radius: 3px;
+      border: 1px solid grey;
     `
     let Button = styled.button`
-      padding: 5px;
-      width: 100px;
+      padding: 5%;
+      width: 50%;
+      border-radius: 3px;
+      border: 0px solid transparent;
+      background-color: grey;
+      color: white;
+      cursor:pointer;
     `
-    const [value, setValue] = useState(null)
+    const [value, setValue] = useState()
 
     let onChageHandler = (e) => {
         setValue(e.target.value)
     }
-    // let onSubmitHandle = () => {
-    //     if (value < 0) {
-    //         alert('please enter positive value for postion of ball')
-    //     }
-    //     setValue(null)
-    // }
 
-    // console.log(ballData
-
-    const ballData = useSelector(state => state.balls)
-    const divBallData = useSelector(state => state.divBalls)
     const dispatch = useDispatch();
 
-    const handleBallClick = () => {
+    // fetched source and destinatio balls data from redux-store;
+    const sourceBallData = useSelector(state => state.source)
+    const destinationBallData = useSelector(state => state.destination)
 
-        let id = value;
-        console.log(id)
-        let payload2 = [...divBallData];
+    const handleSourceBall = (e) => {
+        e.preventDefault();
 
-        let payload1 = ballData.filter(item => {
-            if (item.position != id) {
-                return item;
+        (value > sourceBallData.length) ? alert("Position doesn't exist") : setValue()
+
+        // variable containing updated ball info of destination;
+        let newDestinationBallData = [...destinationBallData];
+
+        // variable containing updated ball info of source;
+        let newSourceBallData = sourceBallData.map(item => {
+
+            // making a ball hidden which is clicked;
+            if (item.position == value) {
+                item.display = "none";
+                item.position = null;
+
+                // adding ball in destination which is shooted;
+                newDestinationBallData.push(item)
             }
-            else {
-                payload2.push(item);
-            }
+            setValue(0)
+            return item;
         })
-        dispatch(ballState(payload1))
-        dispatch(divBallsState(payload2));
 
-        // console.log(payload1, payload2)
+        // updating the ball info in destination (container);
+        dispatch(destinationBallsState(newDestinationBallData));
+
+        let count = 1;
+        // re-arrangin the position of rest of balls after removing a ball;
+        let orderedPayload1 = newSourceBallData.map((item) => {
+            if (item.display == "block") {
+                item.position = count;
+                count++;
+            }
+            return item;
+        })
+
+        // updating the balls info in source;
+        dispatch(sourceBallAction(orderedPayload1))
     }
 
-    console.log(ballData)
-    console.log(divBallData)
-
     return (
-        <div>
-            <Input type="number" value={value} onChange={onChageHandler} placeholder='Enter Positon of Ball' /> <br /><br />
-            <Button type="submit" onClick={handleBallClick} value={"Shoot"} > SHOOT </Button>
-        </div>
+        <ScreenRight>
+            <form action="" onSubmit={handleSourceBall}>
+                <Input type="number" value={value} onChange={onChageHandler} placeholder='Enter ball positon' required /> <br /><br />
+                <Button type="submit" value={"Shoot"} > SHOOT </Button>
+            </form>
+        </ScreenRight>
     )
 }
 

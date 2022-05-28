@@ -1,23 +1,28 @@
-import { BALL_STATE, DIV_BALL_STATE } from "./action";
+import { SOURCE_BALL_STATE, DESTINATION_BALL_STATE } from "./action";
+import { nanoid } from "nanoid"
 
+//initial state for ballReducer function;
 const initState = {
-    balls: [
-        { position: 1 }, { position: 2 }, { position: 3 }, { position: 4 }, { position: 5 }
+    //source has all 5 balls initially;
+    source: [
+        { id: nanoid(), position: 1, color: "grey", display: "block" }, { id: nanoid(), position: 2, color: "yellow", display: "block" }, { id: nanoid(), position: 3, color: "orange", display: "block" }, { id: nanoid(), position: 4, color: "red", display: "block" }, { id: nanoid(), position: 5, color: "pink", display: "block" }
     ],
-    divBalls: []
+    //destination will contain all balls which will be shooted;
+    destination: []
 }
 
+//reducer function;
 export const ballReducer = (state = initState, action) => {
     switch (action.type) {
-        case BALL_STATE:
+        case SOURCE_BALL_STATE:
             return {
                 ...state,
-                balls: action.payload
+                source: action.payload
             }
-        case DIV_BALL_STATE:
+        case DESTINATION_BALL_STATE:
             return {
                 ...state,
-                divBalls: action.payload
+                destination: action.payload
             }
         default:
             return state;

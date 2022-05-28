@@ -1,17 +1,16 @@
-export const BALL_STATE = "BALL_STATE";
-export const DIV_BALL_STATE = "DIV_BALL_STATE";
+export const SOURCE_BALL_STATE = "SOURCE_BALL_STATE";
+export const DESTINATION_BALL_STATE = "DESTINATION_BALL_STATE";
 
-export const ballState = (payload) => {
+export const sourceBallAction = (payload) => {
     return {
-        type: BALL_STATE,
+        type: SOURCE_BALL_STATE,
         payload
     }
-
 }
 
-export const divBallsState = (payload) => {
+export const destinationBallsState = (payload) => {
     return {
-        type: DIV_BALL_STATE,
+        type: DESTINATION_BALL_STATE,
         payload
     }
 }
