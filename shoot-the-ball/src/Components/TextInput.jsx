@@ -15,7 +15,7 @@ const TextInput = () => {
 
     let Input = styled.input`
       padding: 5%;
-      width: 80%;
+      width: 90%;
       border-radius: 3px;
       border: 1px solid grey;
     `

@@ -10,9 +10,10 @@ width: 30%;
 display: flex;
 justify-content: center;
 align-items: center;
-
 `;
+
 const BallContainerDiv = styled.div`
+
 margin-left: 5%;
 margin-top: 5%;
 border: 1px solid grey;
@@ -65,7 +66,7 @@ const BallContainer = () => {
         <ScreenLeft >
             <BallContainerDiv>
                 {destinationBallData.map(item => (
-                    <Ball onClick={() => handleShoot(item.id)} key={item.id} style={{ backgroundColor: item.color, height: "30%", width: "20%" }}> </Ball>
+                    <Ball onClick={() => handleShoot(item.id)} key={item.id} style={{ backgroundColor: item.color, height: "40px", width: "40px" }}> </Ball>
                 ))}
             </BallContainerDiv>
         </ScreenLeft>

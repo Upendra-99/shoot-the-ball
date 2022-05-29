@@ -21,7 +21,6 @@ function App() {
     justify-content: center;
     text-align: center;
     font-size: 1.5vw;
-    col-gap: 5px;
   `;
 
   return (
