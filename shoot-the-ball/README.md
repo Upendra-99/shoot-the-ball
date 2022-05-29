@@ -9,9 +9,9 @@
 ## Run Locally 💻
 
 
-1. Install nodejs :
+1. Install nodejs 
 
-2. Clone the project :
+2. Clone the project 
    git clone https://github.com/Upendra-99/shoot-the-ball/tree/main/shoot-the-ball
    
 3. run npm install
