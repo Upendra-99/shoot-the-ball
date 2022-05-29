@@ -12,14 +12,12 @@
 1. Install nodejs :
 
 2. Clone the project :
-   git clone https://github.com/Upendra-99/Quora-Clone.git
+   git clone https://github.com/Upendra-99/shoot-the-ball/tree/main/shoot-the-ball
    
 3. run npm install
  
 4. run npm start
 
-5. 
-
 ## Demo 🎥
-Deployed Link: [Quora Link](https://quoraclonewebsite.netlify.app/login)
+Deployed Link: [Game Link]()
 
