@@ -1,17 +1,25 @@
-*Syngenta Frontend Assignment*
-Technologies Used
-React js
-Styled-components
-Cloudflare
-This is a simple balloon game website. The game is played by clicking on the balloons. You can shoot the balloons by entering number inside and balloon will move from outside to box. You can move the balloons to the box by clicking on the box.
+# Shoot The Ball 🌇
+  It's a game developed in React.js with beautifull UI and responsiveness.
 
-Website URL
+## Tech Stack Used 👩‍💻
+- React
+- Redux
+- Styled-components
 
-How to run locally
-Install nodejs
-Clone the repository
-run npm install
-run npm start
-Enter the number of balloon you want to shoot
-Click on the balloon
-Enjoy
+## Run Locally 💻
+
+
+1. Install nodejs :
+
+2. Clone the project :
+   git clone https://github.com/Upendra-99/Quora-Clone.git
+   
+3. run npm install
+ 
+4. run npm start
+
+5. 
+
+## Demo 🎥
+Deployed Link: [Quora Link](https://quoraclonewebsite.netlify.app/login)
+
