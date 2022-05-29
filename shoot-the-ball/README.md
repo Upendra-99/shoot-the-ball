@@ -19,5 +19,5 @@
 4. run npm start
 
 ## Demo 🎥
-Deployed Link: [Game Link]()
+Deployed Link: [Game Link](https://shoot-the-ball.netlify.app/)
 
