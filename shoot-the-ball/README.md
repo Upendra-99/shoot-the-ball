@@ -1,4 +1,4 @@
-Syngenta Frontend Assignment
+*Syngenta Frontend Assignment*
 Technologies Used
 React js
 Styled-components
